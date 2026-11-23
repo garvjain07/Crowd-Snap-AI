@@ -154,6 +154,20 @@ Public admin registration is disabled. Configure the initial admin using `ADMIN_
 5. **System** displays all matching photos
 6. **User** downloads selected photos (single/bulk ZIP)
 
+### Interactive demo
+
+Open `/demo` to try the face-matching workflow without an admin account or event code.
+
+1. Upload exactly three gallery photos.
+2. Add a selfie by upload or webcam.
+3. The backend detects faces and creates temporary 128-value encodings in local server memory.
+4. It compares the selfie encoding with faces in the three uploaded photos.
+5. Matching temporary images are returned to the browser.
+
+The demo is not stored in MongoDB or Cloudinary. Its files and encodings remain in
+the backend temporary cache for 30 minutes and are deleted immediately when the
+demo is cleared or the demo page is closed.
+
 ### Storage and processing
 
 - Original photos are stored in `backend/uploads/<event-id>/`.

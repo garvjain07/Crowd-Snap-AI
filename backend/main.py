@@ -12,7 +12,8 @@ from config import (
 )
 from models import ADMINS, EVENTS
 from database import database
-from routes import admin, events, photos, search, download, registrations
+from routes import admin, events, photos, search, download, registrations, demo
+from config import TEMP_DIR
 
 logging.basicConfig(
     level=logging.INFO,
@@ -38,6 +39,7 @@ app.add_middleware(
 
 app.mount("/uploads", StaticFiles(directory=str(UPLOAD_DIR)), name="uploads")
 app.mount("/thumbnails", StaticFiles(directory=str(THUMBNAIL_DIR)), name="thumbnails")
+app.mount("/demo-cache", StaticFiles(directory=str(TEMP_DIR / "demo")), name="demo-cache")
 
 app.include_router(admin.router)
 app.include_router(events.router)
@@ -45,6 +47,7 @@ app.include_router(photos.router)
 app.include_router(search.router)
 app.include_router(download.router)
 app.include_router(registrations.router)
+app.include_router(demo.router)
 
 
 @app.on_event("startup")
