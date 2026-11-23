@@ -1,5 +1,5 @@
 // ============================================
-// FaceFind Frontend - Admin Dashboard Page
+// Crowd Snap AI - Admin Dashboard Page
 // ============================================
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';

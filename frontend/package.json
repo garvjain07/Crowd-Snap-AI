@@ -1,8 +1,8 @@
 {
-  "name": "facefind-frontend",
+  "name": "crowd-snap-ai-frontend",
   "private": true,
   "version": "1.0.0",
-  "description": "FaceFind - AI Face Recognition Photo Search Platform",
+  "description": "Crowd Snap AI - Event Photo Search Platform",
   "type": "module",
   "scripts": {
     "dev": "vite",

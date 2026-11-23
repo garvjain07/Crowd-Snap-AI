@@ -68,7 +68,7 @@ async def download_zip(photo_ids: List[str], db=Depends(get_db)):
         response = StreamingResponse(
             create_zip_from_files(filepaths),
             media_type="application/zip",
-            headers={"Content-Disposition": "attachment; filename=FaceFind_Photos.zip"},
+            headers={"Content-Disposition": "attachment; filename=Crowd_Snap_AI_Photos.zip"},
         )
         return response
     finally:

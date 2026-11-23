@@ -1,5 +1,5 @@
 // ============================================
-// FaceFind Frontend - Photo Grid Component
+// Crowd Snap AI - Photo Grid Component
 // ============================================
 import { useState } from 'react';
 import { FiDownload, FiCheck, FiZoomIn, FiX } from 'react-icons/fi';

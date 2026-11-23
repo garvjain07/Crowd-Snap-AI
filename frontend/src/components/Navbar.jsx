@@ -1,5 +1,5 @@
 // ============================================
-// FaceFind Frontend - Navbar Component
+// Crowd Snap AI - Navbar Component
 // ============================================
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -25,10 +25,10 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Application logo */}
           <Link to="/" className="flex items-center gap-3" onClick={closeMenu}>
-            <img src="/jain-logo.png" alt="Find Ur Photos" className="w-9 h-9 rounded" />
+            <img src="/jain-logo.png" alt="Crowd Snap AI" className="w-9 h-9 rounded" />
             <div className="flex flex-col leading-tight">
-              <span className="text-lg sm:text-xl font-bold text-white tracking-wide">Find Ur Photos</span>
-              <span className="text-[10px] text-slate-400 tracking-widest uppercase">FaceFind AI</span>
+              <span className="text-lg sm:text-xl font-bold text-white tracking-wide">Crowd Snap AI</span>
+              <span className="text-[10px] text-slate-400 tracking-widest uppercase">Event Photo Search</span>
             </div>
           </Link>
 

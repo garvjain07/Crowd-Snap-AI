@@ -1,10 +1,10 @@
 # ========================================
-#   FaceFind Backend Server Startup
+#   Crowd Snap AI Backend Server Startup
 # ========================================
 
 Write-Host ""
 Write-Host "========================================" -ForegroundColor Cyan
-Write-Host "  🚀 Starting FaceFind Backend Server" -ForegroundColor Green
+Write-Host "  🚀 Starting Crowd Snap AI Backend Server" -ForegroundColor Green
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "📍 Server: http://localhost:8001" -ForegroundColor Yellow

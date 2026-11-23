@@ -1,5 +1,5 @@
 # ============================================
-# FaceFind Backend - Face Recognition Engine
+# Crowd Snap AI Backend - Face Recognition Engine
 # ============================================
 import numpy as np
 try:

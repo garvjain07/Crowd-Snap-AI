@@ -1,5 +1,5 @@
 // ============================================
-// FaceFind Frontend - Auth Context
+// Crowd Snap AI - Auth Context
 // ============================================
 import { createContext, useContext, useState, useEffect } from 'react';
 import { getAdminProfile } from '../services/api';
@@ -15,7 +15,7 @@ export function AuthProvider({ children }) {
   }, []);
 
   const checkAuth = async () => {
-    const token = localStorage.getItem('facefind_token');
+    const token = localStorage.getItem('crowdsnap_token');
     if (!token) {
       setLoading(false);
       return;
@@ -24,19 +24,19 @@ export function AuthProvider({ children }) {
       const res = await getAdminProfile();
       setAdmin(res.data);
     } catch {
-      localStorage.removeItem('facefind_token');
+      localStorage.removeItem('crowdsnap_token');
       setAdmin(null);
     }
     setLoading(false);
   };
 
   const login = (token, adminData) => {
-    localStorage.setItem('facefind_token', token);
+    localStorage.setItem('crowdsnap_token', token);
     setAdmin(adminData);
   };
 
   const logout = () => {
-    localStorage.removeItem('facefind_token');
+    localStorage.removeItem('crowdsnap_token');
     setAdmin(null);
   };
 

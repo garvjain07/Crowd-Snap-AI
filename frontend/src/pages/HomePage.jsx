@@ -1,5 +1,5 @@
 // ============================================
-// FaceFind Frontend - Home / Search Page
+// Crowd Snap AI - Home / Search Page
 // ============================================
 import { useState, useRef } from 'react';
 import { FiSearch, FiCamera, FiUpload, FiDownload, FiPackage, FiShield } from 'react-icons/fi';
@@ -126,7 +126,7 @@ export default function HomePage() {
         const url = URL.createObjectURL(new Blob([res.data]));
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'FaceFind_Photo.jpg';
+        a.download = 'Crowd_Snap_AI_Photo.jpg';
         a.click();
         URL.revokeObjectURL(url);
       } else {
@@ -134,7 +134,7 @@ export default function HomePage() {
         const url = URL.createObjectURL(new Blob([res.data]));
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'FaceFind_Photos.zip';
+        a.download = 'Crowd_Snap_AI_Photos.zip';
         a.click();
         URL.revokeObjectURL(url);
       }
@@ -155,7 +155,7 @@ export default function HomePage() {
       const url = URL.createObjectURL(new Blob([res.data]));
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'FaceFind_All_Photos.zip';
+      a.download = 'Crowd_Snap_AI_All_Photos.zip';
       a.click();
       URL.revokeObjectURL(url);
       toast.success('Downloading all photos!');

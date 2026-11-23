@@ -1,10 +1,10 @@
-# 🔍 Find Ur Photos — AI Face Recognition Photo Search Platform
+# 🔍 Crowd Snap AI — Event Photo Search Platform
 
 > Upload all photos → Scan your face → Get only YOUR photos instantly!
 
-## 🎯 What is FaceFind?
+## 🎯 What is Crowd Snap AI?
 
-Find Ur Photos is an AI-powered web application that allows event organizers to upload event photos, and users can find photos containing their face by scanning via webcam or uploading a selfie.
+Crowd Snap AI is an AI-powered web application that allows event organizers to upload event photos, and users can find photos containing their face by scanning via webcam or uploading a selfie.
 
 ## 🏗️ Tech Stack
 
@@ -21,7 +21,7 @@ Find Ur Photos is an AI-powered web application that allows event organizers to 
 ## 📁 Project Structure
 
 ```
-FaceFind/
+Crowd-Snap-AI/
 ├── backend/
 │   ├── main.py              # FastAPI app entry point
 │   ├── config.py            # Environment & settings
@@ -218,7 +218,7 @@ Do not set `LOCAL_ONLY=true` on Render. Render does not run MongoDB inside the w
    git checkout main
    git pull --rebase origin main
    git add .
-   git commit -m "Prepare FaceFind for deployment"
+   git commit -m "Prepare Crowd Snap AI for deployment"
    git push -u origin main
    ```
 

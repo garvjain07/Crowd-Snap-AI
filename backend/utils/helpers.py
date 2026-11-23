@@ -1,5 +1,5 @@
 # ============================================
-# FaceFind Backend - Helper Utilities
+# Crowd Snap AI Backend - Helper Utilities
 # ============================================
 import random
 import string

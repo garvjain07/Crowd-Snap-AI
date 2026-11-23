@@ -1,5 +1,5 @@
 // ============================================
-// FaceFind Frontend - Footer Component
+// Crowd Snap AI - Footer Component
 // ============================================
 import { FiHeart, FiShield, FiMail } from 'react-icons/fi';
 
@@ -14,10 +14,10 @@ export default function Footer() {
           {/* Brand */}
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3">
-              <img src="/jain-logo.png" alt="Find Ur Photos" className="w-8 h-8 rounded" />
+              <img src="/jain-logo.png" alt="Crowd Snap AI" className="w-8 h-8 rounded" />
               <div className="flex flex-col leading-tight">
-                <span className="text-lg font-bold text-white">Find Ur Photos</span>
-                <span className="text-[10px] text-slate-400 tracking-widest uppercase">FaceFind AI</span>
+                <span className="text-lg font-bold text-white">Crowd Snap AI</span>
+                <span className="text-[10px] text-slate-400 tracking-widest uppercase">Event Photo Search</span>
               </div>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed">
@@ -56,7 +56,7 @@ export default function Footer() {
         <div className="border-t border-slate-700/50 pt-6">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
             <p className="text-slate-500 text-xs text-center sm:text-left">
-              &copy; {currentYear} Find Ur Photos. All rights reserved. Powered by FaceFind AI.
+              &copy; {currentYear} Crowd Snap AI. All rights reserved.
             </p>
             <p className="text-slate-500 text-xs flex items-center gap-1">
               Made with <FiHeart size={12} className="text-red-400" /> in India

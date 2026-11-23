@@ -1,5 +1,5 @@
 # ============================================
-# FaceFind Backend - Storage Utility
+# Crowd Snap AI Backend - Storage Utility
 # ============================================
 import os
 import shutil

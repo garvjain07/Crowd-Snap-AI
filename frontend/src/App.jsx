@@ -1,5 +1,5 @@
 // ============================================
-// FaceFind Frontend - Main App with Routing
+// Crowd Snap AI - Main App with Routing
 // ============================================
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';

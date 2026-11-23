@@ -1,5 +1,5 @@
 # ============================================
-# FaceFind Backend - Python Dependencies
+# Crowd Snap AI Backend - Python Dependencies
 # ============================================
 
 # Web Framework

@@ -1,5 +1,5 @@
 // ============================================
-// FaceFind Frontend - Event Detail Page
+// Crowd Snap AI - Event Detail Page
 // ============================================
 import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';

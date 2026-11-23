@@ -1,4 +1,4 @@
-"""FaceFind FastAPI application."""
+"""Crowd Snap AI FastAPI application."""
 import logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -18,10 +18,10 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
 )
-logger = logging.getLogger("FaceFind")
+logger = logging.getLogger("CrowdSnapAI")
 
 app = FastAPI(
-    title="FaceFind API",
+    title="Crowd Snap AI API",
     description="AI-Powered Face Recognition Photo Search Platform",
     version="1.0.0",
     docs_url="/docs",
@@ -49,7 +49,7 @@ app.include_router(registrations.router)
 
 @app.on_event("startup")
 async def startup():
-    logger.info("FaceFind starting up...")
+    logger.info("Crowd Snap AI starting up...")
     init_db()
     # BackgroundTasks are in-process; a Render restart terminates them.
     # Release stale processing flags so the admin can retry safely.
@@ -65,12 +65,12 @@ async def startup():
             "id": __import__("uuid").uuid4().hex,
             "email": DEFAULT_ADMIN_EMAIL,
             "hashed_password": hash_password(DEFAULT_ADMIN_PASSWORD),
-            "name": "FaceFind Admin",
+            "name": "Crowd Snap AI Admin",
             "is_active": True,
             "created_at": __import__("datetime").datetime.utcnow(),
         })
         logger.info("Default admin created: %s", DEFAULT_ADMIN_EMAIL)
-    logger.info("FaceFind is ready")
+    logger.info("Crowd Snap AI is ready")
 
 
 @app.on_event("shutdown")
@@ -80,7 +80,7 @@ async def shutdown():
 
 @app.get("/")
 async def root():
-    return {"app": "FaceFind", "version": "1.0.0", "docs": "/docs", "status": "running"}
+    return {"app": "Crowd Snap AI", "version": "1.0.0", "docs": "/docs", "status": "running"}
 
 
 @app.get("/health")

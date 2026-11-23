@@ -1,10 +1,11 @@
 // ============================================
-// FaceFind Frontend - API Service
+// Crowd Snap AI - API Service
 // ============================================
 import axios from 'axios';
 
 // In production: use full backend URL; In dev: proxy handles it
-const API_BASE = import.meta.env.VITE_API_URL || '/api';
+const configuredApiUrl = import.meta.env.VITE_API_URL?.trim();
+const API_BASE = (configuredApiUrl || '/api').replace(/\/+$/, '');
 
 const api = axios.create({
   baseURL: API_BASE,
@@ -13,7 +14,7 @@ const api = axios.create({
 
 // Attach auth token to requests
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('facefind_token');
+  const token = localStorage.getItem('crowdsnap_token');
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
@@ -25,7 +26,7 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      localStorage.removeItem('facefind_token');
+      localStorage.removeItem('crowdsnap_token');
       window.location.href = '/admin/login';
     }
     return Promise.reject(error);

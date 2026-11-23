@@ -1,5 +1,5 @@
 # ============================================
-# FaceFind Backend - Configuration
+# Crowd Snap AI Backend - Configuration
 # ============================================
 import os
 from pathlib import Path
@@ -55,7 +55,14 @@ PORT = int(os.getenv("PORT", "8001"))
 DEBUG = os.getenv("DEBUG", "True").lower() == "true"
 
 # CORS
-CORS_ORIGINS = os.getenv("CORS_ORIGINS", "http://localhost:5173,http://localhost:3000").split(",")
+CORS_ORIGINS = [
+    origin.strip()
+    for origin in os.getenv(
+        "CORS_ORIGINS",
+        "http://localhost:5173,http://localhost:3000",
+    ).split(",")
+    if origin.strip()
+]
 
 # Initial admin credentials
 DEFAULT_ADMIN_EMAIL = os.getenv("ADMIN_EMAIL", "").strip()

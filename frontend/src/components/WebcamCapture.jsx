@@ -1,5 +1,5 @@
 // ============================================
-// FaceFind Frontend - Webcam Capture Component
+// Crowd Snap AI - Webcam Capture Component
 // ============================================
 import { useRef, useState, useCallback } from 'react';
 import Webcam from 'react-webcam';

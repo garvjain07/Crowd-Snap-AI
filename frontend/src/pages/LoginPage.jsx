@@ -1,5 +1,5 @@
 // ============================================
-// FaceFind Frontend - Admin Login Page
+// Crowd Snap AI - Admin Login Page
 // ============================================
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -26,7 +26,7 @@ export default function LoginPage() {
     try {
       const res = await adminLogin(email, password);
       const token = res.data.access_token;
-      localStorage.setItem('facefind_token', token);
+      localStorage.setItem('crowdsnap_token', token);
 
       const profile = await getAdminProfile();
       login(token, profile.data);
@@ -56,7 +56,7 @@ export default function LoginPage() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="admin@facefind.com"
+                placeholder="admin@crowdsnap.ai"
                 className="input-field !pl-10"
               />
             </div>
