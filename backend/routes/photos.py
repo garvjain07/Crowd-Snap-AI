@@ -51,7 +51,7 @@ def process_single_photo(photo_id: str, filepath: str):
         if thumbnail_path:
             update["thumbnail_path"] = upload_image(
                 thumbnail_path,
-                f"facefind/events/{photo['event_id']}/thumbnails",
+                f"crowd-snap-ai/events/{photo['event_id']}/thumbnails",
                 photo_id,
             )
             database[PHOTOS].update_one(

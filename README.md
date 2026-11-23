@@ -158,7 +158,7 @@ Public admin registration is disabled. Configure the initial admin using `ADMIN_
 
 - Original photos are stored in `backend/uploads/<event-id>/`.
 - Generated thumbnails are stored in `backend/thumbnails/`.
-- MongoDB stores event, photo metadata, and face encodings in the local `facefind` database.
+- MongoDB stores event, photo metadata, and face encodings in the local `crowdsnap` database.
 - No Cloudinary, MongoDB Atlas, or internet connection is required in local-only mode.
 - Processing images are resized to `MAX_PROCESSING_DIM` (default `1000`) to reduce memory usage.
 - Upload batches are limited by `MAX_BULK_UPLOAD` (default `25`). Smaller batches are recommended on Render's free instance.
@@ -178,7 +178,7 @@ The application is configured for local-only mode by default:
 ```env
 LOCAL_ONLY=true
 MONGODB_URL=mongodb://127.0.0.1:27017
-MONGODB_DATABASE=facefind
+MONGODB_DATABASE=crowdsnap
 ```
 
 Start the **MongoDB** Windows service before starting the backend:
@@ -196,7 +196,7 @@ backend/thumbnails/
 backend/temp/
 ```
 
-The local database and image files are persistent across application restarts. Back up the MongoDB `facefind` database and the three backend folders if the computer or disk could fail.
+The local database and image files are persistent across application restarts. Back up the MongoDB `crowdsnap` database and the three backend folders if the computer or disk could fail.
 
 ### Online deployment
 
@@ -234,7 +234,7 @@ Do not set `LOCAL_ONLY=true` on Render. Render does not run MongoDB inside the w
 4. **Configure:**
    | Setting | Value |
    |---------|-------|
-   | Name | `facefind-backend` |
+   | Name | `crowd-snap-ai-backend` |
    | Root Directory | `backend` |
    | Runtime | `Docker` |
    | Instance Type | Free for demos; upgrade if face processing restarts |
@@ -242,8 +242,8 @@ Do not set `LOCAL_ONLY=true` on Render. Render does not run MongoDB inside the w
 5. **Add Environment Variables** (in Render dashboard):
    ```
    LOCAL_ONLY=false
-   MONGODB_URL=mongodb+srv://<user>:<password>@<cluster-host>/facefind?retryWrites=true&w=majority
-   MONGODB_DATABASE=facefind
+   MONGODB_URL=mongodb+srv://<user>:<password>@<cluster-host>/crowdsnap?retryWrites=true&w=majority
+   MONGODB_DATABASE=crowdsnap
    SECRET_KEY=your-strong-random-secret-key
    ADMIN_EMAIL=your-admin-email
    ADMIN_PASSWORD=your-strong-admin-password
@@ -257,11 +257,11 @@ Do not set `LOCAL_ONLY=true` on Render. Render does not run MongoDB inside the w
 
 6. Click **Deploy** → Wait for the Docker build and deployment to complete
 
-7. Your backend URL will be similar to: `https://facefind-backend.onrender.com`
+7. Your backend URL will be similar to: `https://crowd-snap-ai-backend.onrender.com`
 
 8. Verify the deployment at:
-   - `https://facefind-backend.onrender.com/health`
-   - `https://facefind-backend.onrender.com/docs`
+   - `https://crowd-snap-ai-backend.onrender.com/health`
+   - `https://crowd-snap-ai-backend.onrender.com/docs`
 
 9. Render free instances can sleep and can restart under memory pressure. Upload 5-10 photos at a time, keep `FACE_MODEL=hog`, and use a paid instance with persistent disk (or a VPS) before storing production photos.
 
@@ -281,7 +281,7 @@ Do not set `LOCAL_ONLY=true` on Render. Render does not run MongoDB inside the w
 
 4. **Add Environment Variable:**
    ```
-   VITE_API_URL=https://facefind-backend.onrender.com/api
+   VITE_API_URL=https://crowd-snap-ai-backend.onrender.com/api
    ```
 
 5. Click **Deploy** → Done in 1-2 min!
@@ -342,17 +342,17 @@ Perfect for **college demo/presentation** — share your local app via internet 
 ```bash
 # Build backend Docker image
 cd backend
-docker build -t facefind-backend .
+docker build -t crowd-snap-ai-backend .
 
 # Run backend container
 docker run -d \
   -p 8001:8001 \
   -e MONGODB_URL=your-mongodb-url \
-  -e MONGODB_DATABASE=facefind \
+  -e MONGODB_DATABASE=crowdsnap \
   -e SECRET_KEY=your-secret-key \
   -e CORS_ORIGINS=http://your-frontend-url \
-  --name facefind-api \
-  facefind-backend
+  --name crowd-snap-ai-api \
+  crowd-snap-ai-backend
 
 # Build and serve frontend
 cd frontend

@@ -7,27 +7,29 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-slate-700/50 bg-slate-900/80 backdrop-blur-sm mt-auto">
+    <footer className="border-t border-slate-200 bg-white mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Top Section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3">
-              <img src="/jain-logo.png" alt="Crowd Snap AI" className="w-8 h-8 rounded" />
+              <div className="w-9 h-9 rounded-xl bg-slate-950 flex items-center justify-center">
+                <span className="text-white text-xs font-black">CS</span>
+              </div>
               <div className="flex flex-col leading-tight">
-                <span className="text-lg font-bold text-white">Crowd Snap AI</span>
+                <span className="text-lg font-bold text-slate-900">Crowd Snap AI</span>
                 <span className="text-[10px] text-slate-400 tracking-widest uppercase">Event Photo Search</span>
               </div>
             </div>
-            <p className="text-slate-400 text-sm leading-relaxed">
+            <p className="text-slate-500 text-sm leading-relaxed">
               AI-powered face recognition photo search. Find your photos from event galleries instantly using advanced face detection technology.
             </p>
           </div>
 
           {/* Quick Info */}
           <div className="flex flex-col gap-2">
-            <h3 className="text-sm font-semibold text-white mb-1">About</h3>
+            <h3 className="text-sm font-semibold text-slate-900 mb-1">About</h3>
             <p className="text-slate-400 text-sm flex items-center gap-2">
               <FiShield size={14} className="text-primary-400 flex-shrink-0" />
               Your photos are securely processed

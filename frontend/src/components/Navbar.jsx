@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { FiSearch, FiLogOut, FiGrid, FiUser, FiMenu, FiX } from 'react-icons/fi';
+import { FiLogOut, FiGrid, FiUser, FiMenu, FiX } from 'react-icons/fi';
 
 export default function Navbar() {
   const { admin, logout } = useAuth();
@@ -20,15 +20,17 @@ export default function Navbar() {
   const closeMenu = () => setMobileOpen(false);
 
   return (
-    <nav className="glass sticky top-0 z-50 border-b border-slate-700/50">
+    <nav className="glass sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Application logo */}
           <Link to="/" className="flex items-center gap-3" onClick={closeMenu}>
-            <img src="/jain-logo.png" alt="Crowd Snap AI" className="w-9 h-9 rounded" />
+            <div className="w-10 h-10 rounded-xl bg-slate-950 flex items-center justify-center shadow-sm">
+              <span className="text-white text-sm font-black tracking-tight">CS</span>
+            </div>
             <div className="flex flex-col leading-tight">
-              <span className="text-lg sm:text-xl font-bold text-white tracking-wide">Crowd Snap AI</span>
-              <span className="text-[10px] text-slate-400 tracking-widest uppercase">Event Photo Search</span>
+              <span className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">Crowd Snap AI</span>
+              <span className="text-[10px] text-slate-500 tracking-[0.22em] uppercase">Event photo search</span>
             </div>
           </Link>
 
@@ -36,7 +38,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-4">
             <Link
               to="/"
-              className="text-slate-300 hover:text-white transition-colors text-sm font-medium"
+              className="text-slate-600 hover:text-slate-950 transition-colors text-sm font-medium"
             >
               Search Photos
             </Link>
@@ -45,7 +47,7 @@ export default function Navbar() {
               <>
                 <Link
                   to="/admin/dashboard"
-                  className="flex items-center gap-1 text-slate-300 hover:text-white transition-colors text-sm font-medium"
+                  className="flex items-center gap-1 text-slate-600 hover:text-slate-950 transition-colors text-sm font-medium"
                 >
                   <FiGrid size={16} />
                   Dashboard
@@ -74,7 +76,7 @@ export default function Navbar() {
 
           {/* Mobile Hamburger */}
           <button
-            className="md:hidden text-slate-300 hover:text-white p-2"
+            className="md:hidden text-slate-700 hover:text-slate-950 p-2"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -87,7 +89,7 @@ export default function Navbar() {
             <Link
               to="/"
               onClick={closeMenu}
-              className="block text-slate-300 hover:text-white transition-colors text-sm font-medium py-2"
+              className="block text-slate-600 hover:text-slate-950 transition-colors text-sm font-medium py-2"
             >
               Search Photos
             </Link>
@@ -97,7 +99,7 @@ export default function Navbar() {
                 <Link
                   to="/admin/dashboard"
                   onClick={closeMenu}
-                  className="flex items-center gap-2 text-slate-300 hover:text-white transition-colors text-sm font-medium py-2"
+                  className="flex items-center gap-2 text-slate-600 hover:text-slate-950 transition-colors text-sm font-medium py-2"
                 >
                   <FiGrid size={16} />
                   Dashboard

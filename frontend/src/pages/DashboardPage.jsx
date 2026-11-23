@@ -90,12 +90,13 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       {/* Header */}
       <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
         <div>
-          <h1 className="text-2xl font-bold">Welcome, {admin?.name}!</h1>
-          <p className="text-slate-400 text-sm">Manage your events and photos</p>
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary-600 mb-2">Organizer workspace</p>
+          <h1 className="text-3xl font-black text-slate-950">Good to see you, {admin?.name?.split(' ')[0] || 'there'}.</h1>
+          <p className="text-slate-500 text-sm mt-1">Manage events, uploads, and processing from one place.</p>
         </div>
         <button onClick={() => setShowCreateModal(true)} className="btn-primary flex items-center gap-2">
           <FiPlus size={18} /> New Event
@@ -230,8 +231,8 @@ function StatCard({ icon, label, value, color }) {
   return (
     <div className={`bg-gradient-to-br ${colorClasses[color]} border rounded-2xl p-5`}>
       <div className="text-2xl mb-2">{icon}</div>
-      <p className="text-2xl font-bold text-white">{value}</p>
-      <p className="text-sm text-slate-400">{label}</p>
+      <p className="text-2xl font-bold text-slate-900">{value}</p>
+      <p className="text-sm text-slate-500">{label}</p>
     </div>
     
   );

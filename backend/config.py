@@ -25,7 +25,7 @@ else:
     MONGODB_URL = os.getenv("MONGODB_URL", "").strip()
     if not MONGODB_URL:
         raise RuntimeError("MONGODB_URL must be configured when LOCAL_ONLY=false")
-MONGODB_DATABASE = os.getenv("MONGODB_DATABASE", "facefind")
+MONGODB_DATABASE = os.getenv("MONGODB_DATABASE", "crowdsnap")
 
 # JWT Auth
 SECRET_KEY = os.getenv("SECRET_KEY", "").strip()

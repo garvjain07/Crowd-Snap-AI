@@ -7,7 +7,7 @@ client = MongoClient(
     MONGODB_URL,
     serverSelectionTimeoutMS=5000,
     connectTimeoutMS=5000,
-    appname="facefind-api",
+    appname="crowd-snap-ai-api",
 )
 database = client[MONGODB_DATABASE]
 

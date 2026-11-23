@@ -168,26 +168,49 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-900/20 via-transparent to-accent-900/20" />
-        <div className="max-w-4xl mx-auto px-4 py-12 sm:py-16 text-center relative">
-          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold mb-4">
-            <span className="gradient-text">Find Your Photos</span>
-            <br />
-            <span className="text-slate-300 text-2xl sm:text-3xl lg:text-4xl">with AI Face Search</span>
-          </h1>
-          <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto mb-8 px-4">
-            Upload your selfie or scan your face — our AI will instantly find all photos
-            where you appear from thousands of event photos.
-          </p>
+      <section className="relative overflow-hidden border-b border-slate-200/70">
+        <div className="absolute left-1/2 top-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-primary-200/40 blur-[100px]" />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
+          <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-10 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary-200 bg-white px-3 py-1.5 text-xs font-semibold text-primary-700 shadow-sm mb-6">
+                <span className="w-2 h-2 rounded-full bg-primary-500" />
+                Your moments, instantly found
+              </div>
+              <h1 className="max-w-3xl text-4xl sm:text-5xl lg:text-[64px] leading-[1.02] font-black tracking-tight text-slate-950">
+                Reunite with every
+                <span className="block text-primary-600">photo that has you.</span>
+              </h1>
+              <p className="mt-6 max-w-xl text-base sm:text-lg leading-8 text-slate-600">
+                Enter your event code, add a clear selfie, and Crowd Snap AI will search the complete gallery for you.
+              </p>
+            </div>
+
+            <div className="relative mx-auto w-full max-w-sm">
+              <div className="absolute -inset-4 rotate-3 rounded-[32px] bg-primary-100" />
+              <div className="relative overflow-hidden rounded-[28px] border border-slate-200 bg-white p-3 shadow-[0_28px_80px_rgba(45,62,100,0.16)]">
+                <div className="aspect-[4/3] rounded-[20px] bg-slate-950 p-5 flex items-end">
+                  <div className="w-full rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur">
+                    <div className="flex items-center justify-between text-white/90">
+                      <span className="text-xs font-medium">Event gallery</span>
+                      <span className="rounded-full bg-emerald-400/20 px-2 py-1 text-[10px] text-emerald-300">AI matched</span>
+                    </div>
+                    <div className="mt-3 grid grid-cols-3 gap-2">
+                      {[0, 1, 2].map((item) => (
+                        <div key={item} className={`aspect-square rounded-lg ${item === 1 ? 'bg-primary-400' : 'bg-slate-700'}`} />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Main Search Flow */}
-      <section className="max-w-4xl mx-auto px-4 pb-16 space-y-8">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 space-y-6">
         {/* Step 1: Event Code */}
-        <div className="card animate-fade-in">
+        <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-[0_10px_35px_rgba(34,49,79,0.05)] animate-fade-in">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-8 h-8 rounded-full bg-primary-500/20 flex items-center justify-center text-primary-400 font-bold text-sm">
               1
@@ -217,7 +240,7 @@ export default function HomePage() {
 
         {/* Step 2: Face Upload */}
         {eventInfo && (
-          <div className="card animate-fade-in">
+          <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-[0_10px_35px_rgba(34,49,79,0.05)] animate-fade-in">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-8 rounded-full bg-primary-500/20 flex items-center justify-center text-primary-400 font-bold text-sm">
                 2
