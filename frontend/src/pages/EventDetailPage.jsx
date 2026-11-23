@@ -130,7 +130,7 @@ export default function EventDetailPage() {
       {/* Back button */}
       <button
         onClick={() => navigate('/admin/dashboard')}
-        className="flex items-center gap-2 text-slate-400 hover:text-white mb-6 transition-colors"
+        className="flex items-center gap-2 text-slate-500 hover:text-slate-950 mb-6 transition-colors"
       >
         <FiArrowLeft /> Back to Dashboard
       </button>
@@ -140,15 +140,15 @@ export default function EventDetailPage() {
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
             <h1 className="text-2xl font-bold mb-1">{event.name}</h1>
-            <p className="text-slate-400 text-sm">{event.description || 'No description'}</p>
+            <p className="text-slate-500 text-sm">{event.description || 'No description'}</p>
           </div>
 
           <div className="flex items-center gap-3">
             {/* Event Code */}
             <button
               onClick={copyCode}
-              className="flex items-center gap-2 bg-slate-700 px-4 py-2 rounded-xl
-                        font-mono text-lg tracking-wider hover:bg-slate-600 transition-colors"
+              className="flex items-center gap-2 bg-slate-100 border border-slate-200 text-slate-700 px-4 py-2 rounded-xl
+                        font-mono text-lg tracking-wider hover:bg-slate-200 transition-colors"
             >
               {copied ? <FiCheck className="text-green-400" /> : <FiCopy />}
               {event.event_code}
@@ -157,7 +157,7 @@ export default function EventDetailPage() {
         </div>
 
         {/* Stats */}
-        <div className="flex flex-wrap gap-6 mt-4 pt-4 border-t border-slate-700">
+        <div className="flex flex-wrap gap-6 mt-4 pt-4 border-t border-slate-200">
           <div className="flex items-center gap-2">
             <FiImage className="text-primary-400" />
             <span className="text-sm">{event.total_photos} photos</span>
@@ -169,7 +169,7 @@ export default function EventDetailPage() {
           <span className={`px-3 py-1 rounded-full text-xs font-medium
             ${processingStatus?.status === 'completed' ? 'bg-green-500/20 text-green-400'
               : processingStatus?.status === 'processing' ? 'bg-amber-500/20 text-amber-400'
-              : 'bg-slate-600/50 text-slate-400'}`}>
+              : 'bg-slate-100 text-slate-600'}`}>
             {processingStatus?.status || event.processing_status}
             {processingStatus?.status === 'processing' && ` (${processingStatus.progress_percent}%)`}
           </span>
@@ -177,7 +177,7 @@ export default function EventDetailPage() {
             <button
               onClick={handleRetryProcessing}
               disabled={retrying}
-              className="flex items-center gap-1 text-xs text-primary-300 hover:text-white disabled:opacity-50"
+              className="flex items-center gap-1 text-xs text-primary-600 hover:text-primary-800 disabled:opacity-50"
             >
               <FiRefreshCw size={13} className={retrying ? 'animate-spin' : ''} />
               Restart processing
@@ -188,13 +188,13 @@ export default function EventDetailPage() {
         {/* Processing progress bar */}
         {processingStatus?.status === 'processing' && (
           <div className="mt-4">
-            <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
+            <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
               <div
                 className="h-full bg-gradient-to-r from-primary-500 to-accent-500 rounded-full transition-all duration-500"
                 style={{ width: `${processingStatus.progress_percent}%` }}
               />
             </div>
-            <p className="text-xs text-slate-400 mt-1">
+            <p className="text-xs text-slate-500 mt-1">
               Processing: {processingStatus.processed_photos} / {processingStatus.total_photos} photos
             </p>
           </div>
@@ -206,15 +206,15 @@ export default function EventDetailPage() {
         <h2 className="text-lg font-semibold mb-4">Upload Photos</h2>
 
         <div
-          className="border-2 border-dashed border-slate-600 rounded-xl p-8 text-center
-                     hover:border-primary-500 transition-colors cursor-pointer"
+          className="border-2 border-dashed border-slate-200 rounded-xl p-8 text-center
+                     hover:border-primary-400 bg-slate-50/60 transition-colors cursor-pointer"
           onClick={() => !uploading && fileInputRef.current?.click()}
         >
           {uploading ? (
             <div>
               <div className="w-12 h-12 border-3 border-primary-500/30 border-t-primary-500 rounded-full animate-spin mx-auto mb-3" />
-              <p className="text-slate-300">Uploading... {uploadProgress}%</p>
-              <div className="w-48 h-2 bg-slate-700 rounded-full mx-auto mt-2">
+              <p className="text-slate-700">Uploading... {uploadProgress}%</p>
+              <div className="w-48 h-2 bg-slate-200 rounded-full mx-auto mt-2">
                 <div
                   className="h-full bg-primary-500 rounded-full transition-all"
                   style={{ width: `${uploadProgress}%` }}
@@ -224,7 +224,7 @@ export default function EventDetailPage() {
           ) : (
             <>
               <FiUpload size={32} className="text-slate-500 mx-auto mb-3" />
-              <p className="text-slate-300 mb-1">Click to upload photos or drag & drop</p>
+              <p className="text-slate-700 mb-1">Click to upload photos or drag & drop</p>
               <p className="text-xs text-slate-500">JPG, PNG, WebP • Max 20MB each • Up to 25 per batch</p>
             </>
           )}
@@ -246,7 +246,7 @@ export default function EventDetailPage() {
           <h2 className="text-lg font-semibold">Event Photos ({photos.length})</h2>
           <button
             onClick={fetchData}
-            className="flex items-center gap-1 text-sm text-slate-400 hover:text-white transition-colors"
+            className="flex items-center gap-1 text-sm text-slate-500 hover:text-slate-950 transition-colors"
           >
             <FiRefreshCw size={14} /> Refresh
           </button>
@@ -255,7 +255,7 @@ export default function EventDetailPage() {
         {photos.length === 0 ? (
           <div className="card text-center py-12">
             <FiImage size={48} className="text-slate-600 mx-auto mb-4" />
-            <p className="text-slate-400">No photos uploaded yet. Start by uploading photos above!</p>
+            <p className="text-slate-500">No photos uploaded yet. Start by uploading photos above!</p>
           </div>
         ) : (
           <PhotoGrid photos={photos} selectable={false} />

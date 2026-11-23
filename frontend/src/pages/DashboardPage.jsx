@@ -95,7 +95,7 @@ export default function DashboardPage() {
       <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary-600 mb-2">Organizer workspace</p>
-          <h1 className="text-3xl font-black text-slate-950">Good to see you, {admin?.name?.split(' ')[0] || 'there'}.</h1>
+          <h1 className="text-3xl font-black text-slate-950">Welcome to your workspace.</h1>
           <p className="text-slate-500 text-sm mt-1">Manage events, uploads, and processing from one place.</p>
         </div>
         <button onClick={() => setShowCreateModal(true)} className="btn-primary flex items-center gap-2">
@@ -120,7 +120,7 @@ export default function DashboardPage() {
         {events.length === 0 ? (
           <div className="card text-center py-12">
             <FiCalendar size={48} className="text-slate-600 mx-auto mb-4" />
-            <p className="text-slate-400 mb-4">No events yet. Create your first event!</p>
+            <p className="text-slate-500 mb-4">No events yet. Create your first event!</p>
             <button onClick={() => setShowCreateModal(true)} className="btn-primary">
               <FiPlus className="inline mr-1" /> Create Event
             </button>
@@ -130,31 +130,31 @@ export default function DashboardPage() {
             {events.map((event) => (
               <div
                 key={event.id}
-                className="card flex flex-wrap items-center gap-4 hover:bg-slate-800/70 cursor-pointer"
+                className="rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_8px_30px_rgba(34,49,79,0.05)] flex flex-wrap items-center gap-4 hover:border-primary-200 hover:shadow-[0_12px_36px_rgba(52,126,245,0.10)] cursor-pointer"
                 onClick={() => navigate(`/admin/event/${event.id}`)}
               >
                 <div className="flex-1 min-w-[200px]">
-                  <h3 className="font-semibold text-white">{event.name}</h3>
-                  <p className="text-sm text-slate-400 line-clamp-1">{event.description || 'No description'}</p>
+                  <h3 className="font-bold text-slate-900">{event.name}</h3>
+                  <p className="text-sm text-slate-500 line-clamp-1">{event.description || 'No description'}</p>
                 </div>
 
                 <div className="flex items-center gap-2">
                   <button
                     onClick={(e) => { e.stopPropagation(); copyCode(event.event_code); }}
-                    className="flex items-center gap-1 bg-slate-700 px-3 py-1.5 rounded-lg text-sm font-mono hover:bg-slate-600 transition-colors"
+                    className="flex items-center gap-1 bg-slate-100 border border-slate-200 text-slate-700 px-3 py-1.5 rounded-lg text-sm font-mono hover:bg-slate-200 transition-colors"
                   >
                     {copiedCode === event.event_code ? <FiCheck size={14} className="text-green-400" /> : <FiCopy size={14} />}
                     {event.event_code}
                   </button>
                 </div>
 
-                <div className="flex items-center gap-4 text-sm text-slate-400">
+                <div className="flex items-center gap-4 text-sm text-slate-500">
                   <span>{event.total_photos} photos</span>
                   <span>{event.total_faces} faces</span>
                   <span className={`px-2 py-0.5 rounded-full text-xs font-medium 
                     ${event.processing_status === 'completed' ? 'bg-green-500/20 text-green-400'
                       : event.processing_status === 'processing' ? 'bg-amber-500/20 text-amber-400'
-                      : 'bg-slate-600/50 text-slate-400'}`}>
+                      : 'bg-slate-100 text-slate-600'}`}>
                     {event.processing_status}
                   </span>
                 </div>
@@ -181,7 +181,7 @@ export default function DashboardPage() {
             <h2 className="text-xl font-bold mb-4">Create New Event</h2>
             <form onSubmit={handleCreateEvent} className="space-y-4">
               <div>
-                <label className="text-sm text-slate-400 mb-1 block">Event Name *</label>
+                <label className="text-sm text-slate-600 mb-1 block">Event Name *</label>
                 <input
                   type="text"
                   value={newEvent.name}
@@ -192,7 +192,7 @@ export default function DashboardPage() {
                 />
               </div>
               <div>
-                <label className="text-sm text-slate-400 mb-1 block">Description</label>
+                <label className="text-sm text-slate-600 mb-1 block">Description</label>
                 <textarea
                   value={newEvent.description}
                   onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}

@@ -46,7 +46,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="flex flex-col gap-2">
-            <h3 className="text-sm font-semibold text-white mb-1">Contact</h3>
+            <h3 className="text-sm font-semibold text-slate-900 mb-1">Contact</h3>
             <a href="mailto:jaingroup008@gmail.com" className="text-slate-400 hover:text-primary-400 text-sm flex items-center gap-2 transition-colors">
               <FiMail size={14} className="flex-shrink-0" />
               jaingroup008@gmail.com
@@ -55,7 +55,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-slate-700/50 pt-6">
+        <div className="border-t border-slate-200 pt-6">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
             <p className="text-slate-500 text-xs text-center sm:text-left">
               &copy; {currentYear} Crowd Snap AI. All rights reserved.

@@ -54,7 +54,7 @@ export default function Navbar() {
                 </Link>
                 <div className="flex items-center gap-2 text-slate-400 text-sm">
                   <FiUser size={14} />
-                  {admin.name}
+                  Crowd Snap Admin
                 </div>
                 <button
                   onClick={handleLogout}
@@ -106,7 +106,7 @@ export default function Navbar() {
                 </Link>
                 <div className="flex items-center gap-2 text-slate-400 text-sm py-2">
                   <FiUser size={14} />
-                  {admin.name}
+                  Crowd Snap Admin
                 </div>
                 <button
                   onClick={handleLogout}

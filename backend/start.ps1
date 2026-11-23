@@ -20,6 +20,7 @@ if (-not (Test-Path "venv\Scripts\python.exe")) {
 
 & "venv\Scripts\python.exe" -m pip install --upgrade pip
 & "venv\Scripts\python.exe" -m pip install -r requirements.txt
+& "venv\Scripts\python.exe" -m pip install face-recognition==1.3.0 face_recognition_models --no-deps
 if ($LASTEXITCODE -ne 0) {
     throw "Dependency installation failed."
 }

@@ -15,6 +15,7 @@ if not exist "venv\Scripts\python.exe" (
 echo Installing/updating dependencies...
 venv\Scripts\python.exe -m pip install --upgrade pip
 venv\Scripts\python.exe -m pip install -r requirements.txt
+venv\Scripts\python.exe -m pip install face-recognition==1.3.0 face_recognition_models --no-deps
 if errorlevel 1 (
   echo Dependency installation failed.
   exit /b 1

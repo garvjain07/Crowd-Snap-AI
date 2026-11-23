@@ -94,7 +94,7 @@ export default function LoginPage() {
           </button>
         </form>
 
-        <div className="mt-4 p-3 bg-slate-700/50 rounded-xl text-xs text-slate-400 text-center">
+        <div className="mt-4 p-3 bg-slate-100 border border-slate-200 rounded-xl text-xs text-slate-500 text-center">
           Use admin credentials set during setup
         </div>
       </div>
