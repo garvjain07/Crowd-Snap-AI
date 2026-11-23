@@ -42,9 +42,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-[80vh] flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md rounded-[28px] border border-slate-200 bg-white p-7 sm:p-9 shadow-[0_24px_70px_rgba(40,55,90,0.12)]">
-        <div className="w-12 h-12 rounded-2xl bg-slate-950 flex items-center justify-center mb-6">
-          <span className="text-white text-sm font-black">CS</span>
-        </div>
+        <img src="/crowd-snap-logo.svg" alt="Crowd Snap AI" className="w-12 h-12 rounded-2xl mb-6" />
         <div className="text-center mb-8">
           <h1 className="text-2xl font-black text-slate-950 mb-2">Organizer access</h1>
           <p className="text-slate-500 text-sm">Sign in to manage events and photo galleries</p>

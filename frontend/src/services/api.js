@@ -128,6 +128,37 @@ export const deleteFaceRegistration = (registrationId, deletionToken) => {
   return api.delete(`/registrations/${registrationId}`, { data: formData });
 };
 
+// ──── Interactive Demo ────
+export const processDemoGallery = (files) => {
+  const formData = new FormData();
+  files.forEach((file) => formData.append('files', file));
+  return api.post('/demo/process', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+    timeout: 600000,
+  });
+};
+
+export const searchDemoGallery = (sessionId, selfie) => {
+  const formData = new FormData();
+  formData.append('face_image', selfie);
+  return api.post(`/demo/search/${sessionId}`, formData, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+    timeout: 60000,
+  });
+};
+
+export const deleteDemoSession = (sessionId) =>
+  api.delete(`/demo/session/${sessionId}`);
+
+export const getDemoAssetUrl = (path) => {
+  if (!path) return '';
+  if (API_BASE.startsWith('http')) {
+    const apiHost = API_BASE.replace(/\/api\/?$/, '');
+    return `${apiHost}${path}`;
+  }
+  return path;
+};
+
 // ──── Files ────
 export const getPhotoUrl = (photoId) => `${API_BASE}/files/photo/${photoId}`;
 export const getThumbnailUrl = (photoId) => `${API_BASE}/files/thumbnail/${photoId}`;

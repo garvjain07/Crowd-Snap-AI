@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { FiLogOut, FiGrid, FiUser, FiMenu, FiX } from 'react-icons/fi';
+import { FiLogOut, FiGrid, FiUser, FiMenu, FiX, FiPlay } from 'react-icons/fi';
 
 export default function Navbar() {
   const { admin, logout } = useAuth();
@@ -25,9 +25,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Application logo */}
           <Link to="/" className="flex items-center gap-3" onClick={closeMenu}>
-            <div className="w-10 h-10 rounded-xl bg-slate-950 flex items-center justify-center shadow-sm">
-              <span className="text-white text-sm font-black tracking-tight">CS</span>
-            </div>
+            <img src="/crowd-snap-logo.svg" alt="Crowd Snap AI" className="w-10 h-10 rounded-xl shadow-sm" />
             <div className="flex flex-col leading-tight">
               <span className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">Crowd Snap AI</span>
               <span className="text-[10px] text-slate-500 tracking-[0.22em] uppercase">Event photo search</span>
@@ -41,6 +39,13 @@ export default function Navbar() {
               className="text-slate-600 hover:text-slate-950 transition-colors text-sm font-medium"
             >
               Search Photos
+            </Link>
+            <Link
+              to="/demo"
+              className="flex items-center gap-1.5 text-slate-600 hover:text-slate-950 transition-colors text-sm font-medium"
+            >
+              <FiPlay size={14} />
+              Live Demo
             </Link>
 
             {admin ? (
@@ -92,6 +97,14 @@ export default function Navbar() {
               className="block text-slate-600 hover:text-slate-950 transition-colors text-sm font-medium py-2"
             >
               Search Photos
+            </Link>
+            <Link
+              to="/demo"
+              onClick={closeMenu}
+              className="flex items-center gap-2 text-slate-600 hover:text-slate-950 transition-colors text-sm font-medium py-2"
+            >
+              <FiPlay size={14} />
+              Live Demo
             </Link>
 
             {admin ? (

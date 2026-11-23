@@ -4,6 +4,10 @@
   "framework": "vite",
   "rewrites": [
     {
+      "source": "/demo-cache/:path*",
+      "destination": "https://crowd-snap-ai-backend.onrender.com/demo-cache/:path*"
+    },
+    {
       "source": "/api/:path*",
       "destination": "https://crowd-snap-ai-backend.onrender.com/api/:path*"
     },

@@ -14,9 +14,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-slate-950 flex items-center justify-center">
-                <span className="text-white text-xs font-black">CS</span>
-              </div>
+              <img src="/crowd-snap-logo.svg" alt="Crowd Snap AI" className="w-9 h-9 rounded-xl" />
               <div className="flex flex-col leading-tight">
                 <span className="text-lg font-bold text-slate-900">Crowd Snap AI</span>
                 <span className="text-[10px] text-slate-400 tracking-widest uppercase">Event Photo Search</span>

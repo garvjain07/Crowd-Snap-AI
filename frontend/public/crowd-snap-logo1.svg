@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="80" y1="40" x2="430" y2="470" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111933"/>
+      <stop offset="1" stop-color="#18255f"/>
+    </linearGradient>
+    <linearGradient id="camera" x1="120" y1="120" x2="400" y2="410" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#347ef5"/>
+      <stop offset=".38" stop-color="#6e46e8"/>
+      <stop offset=".72" stop-color="#ea3a9a"/>
+      <stop offset="1" stop-color="#20bfd3"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <path d="M177 154l26-54h106l29 54h42c31 0 56 25 56 56v145c0 31-25 56-56 56H132c-31 0-56-25-56-56V210c0-31 25-56 56-56h45z" fill="url(#camera)" stroke="#96b8ff" stroke-width="9" stroke-linejoin="round"/>
+  <circle cx="256" cy="278" r="119" fill="#111933" stroke="#6f7ff7" stroke-width="12"/>
+  <path d="M256 159c46 0 86 26 106 64-35-12-75-6-103 18-27 23-38 61-28 94-17-25-26-55-23-86 4-50 48-90 48-90z" fill="#347ef5"/>
+  <path d="M360 223c24 40 24 91-1 131-18-31-48-54-83-60-36-7-73 4-98 31 5-30 23-57 48-73 35-22 88-25 134-29z" fill="#c63ce5"/>
+  <path d="M358 354c-34 34-84 47-130 35 31-19 51-51 54-87 4-37-13-73-42-96 31 0 62 11 85 32 35 31 48 75 33 116z" fill="#20bfd3"/>
+  <path d="M228 389c-42-7-79-34-96-75 35 8 72 1 101-20 30-21 49-54 50-90 23 24 36 55 36 88 0 50-40 91-91 97z" fill="#f59e0b"/>
+</svg>
