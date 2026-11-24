@@ -181,8 +181,9 @@ export default function DashboardPage() {
             <h2 className="text-xl font-bold mb-4">Create New Event</h2>
             <form onSubmit={handleCreateEvent} className="space-y-4">
               <div>
-                <label className="text-sm text-slate-600 mb-1 block">Event Name *</label>
+                <label htmlFor="event-name" className="text-sm text-slate-600 mb-1 block">Event Name *</label>
                 <input
+                  id="event-name"
                   type="text"
                   value={newEvent.name}
                   onChange={(e) => setNewEvent({ ...newEvent, name: e.target.value })}
@@ -192,8 +193,9 @@ export default function DashboardPage() {
                 />
               </div>
               <div>
-                <label className="text-sm text-slate-600 mb-1 block">Description</label>
+                <label htmlFor="event-description" className="text-sm text-slate-600 mb-1 block">Description</label>
                 <textarea
+                  id="event-description"
                   value={newEvent.description}
                   onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
                   placeholder="Brief description of the event..."

@@ -17,7 +17,7 @@ export default function Footer() {
               <img src="/crowd-snap-logo.svg" alt="Crowd Snap AI" className="w-9 h-9 rounded-xl" />
               <div className="flex flex-col leading-tight">
                 <span className="text-lg font-bold text-slate-900">Crowd Snap AI</span>
-                <span className="text-[10px] text-slate-400 tracking-widest uppercase">Event Photo Search</span>
+                <span className="text-[10px] text-slate-600 tracking-widest uppercase">Event Photo Search</span>
               </div>
             </div>
             <p className="text-slate-500 text-sm leading-relaxed">
@@ -28,15 +28,15 @@ export default function Footer() {
           {/* Quick Info */}
           <div className="flex flex-col gap-2">
             <h3 className="text-sm font-semibold text-slate-900 mb-1">About</h3>
-            <p className="text-slate-400 text-sm flex items-center gap-2">
+            <p className="text-slate-600 text-sm flex items-center gap-2">
               <FiShield size={14} className="text-primary-400 flex-shrink-0" />
               Your photos are securely processed
             </p>
-            <p className="text-slate-400 text-sm flex items-center gap-2">
+            <p className="text-slate-600 text-sm flex items-center gap-2">
               <FiShield size={14} className="text-primary-400 flex-shrink-0" />
               Face data is not shared with third parties
             </p>
-            <p className="text-slate-400 text-sm flex items-center gap-2">
+            <p className="text-slate-600 text-sm flex items-center gap-2">
               <FiShield size={14} className="text-primary-400 flex-shrink-0" />
               Images are processed on secure servers
             </p>
@@ -45,7 +45,7 @@ export default function Footer() {
           {/* Contact */}
           <div className="flex flex-col gap-2">
             <h3 className="text-sm font-semibold text-slate-900 mb-1">Contact</h3>
-            <a href="mailto:jaingroup008@gmail.com" className="text-slate-400 hover:text-primary-400 text-sm flex items-center gap-2 transition-colors">
+            <a href="mailto:jaingroup008@gmail.com" className="text-slate-600 hover:text-primary-700 text-sm flex items-center gap-2 transition-colors">
               <FiMail size={14} className="flex-shrink-0" />
               jaingroup008@gmail.com
             </a>

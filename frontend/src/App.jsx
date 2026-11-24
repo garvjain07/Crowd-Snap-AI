@@ -1,16 +1,25 @@
 // ============================================
 // Crowd Snap AI - Main App with Routing
 // ============================================
+import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
-import LoginPage from './pages/LoginPage';
-import DashboardPage from './pages/DashboardPage';
-import EventDetailPage from './pages/EventDetailPage';
-import DemoPage from './pages/DemoPage';
+const LoginPage = lazy(() => import('./pages/LoginPage'));
+const DashboardPage = lazy(() => import('./pages/DashboardPage'));
+const EventDetailPage = lazy(() => import('./pages/EventDetailPage'));
+const DemoPage = lazy(() => import('./pages/DemoPage'));
+
+function RouteLoading() {
+  return (
+    <div className="min-h-[60vh] flex items-center justify-center" role="status" aria-label="Loading page">
+      <div className="w-9 h-9 border-3 border-primary-500/30 border-t-primary-500 rounded-full animate-spin" />
+    </div>
+  );
+}
 
 // Protected Route wrapper
 function ProtectedRoute({ children }) {
@@ -37,6 +46,7 @@ function AppRoutes() {
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-1">
+          <Suspense fallback={<RouteLoading />}>
           <Routes>
             {/* Public Routes */}
             <Route path="/" element={<HomePage />} />
@@ -67,6 +77,7 @@ function AppRoutes() {
             {/* Fallback */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
+          </Suspense>
         </main>
         <Footer />
       </div>

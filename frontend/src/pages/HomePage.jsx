@@ -1,12 +1,12 @@
 // ============================================
 // Crowd Snap AI - Home / Search Page
 // ============================================
-import { useState, useRef } from 'react';
+import { lazy, Suspense, useState, useRef } from 'react';
 import { FiSearch, FiCamera, FiUpload, FiDownload, FiPackage, FiShield } from 'react-icons/fi';
 import toast from 'react-hot-toast';
-import WebcamCapture from '../components/WebcamCapture';
-import MultiAngleRegistration from '../components/MultiAngleRegistration';
 import PhotoGrid from '../components/PhotoGrid';
+const WebcamCapture = lazy(() => import('../components/WebcamCapture'));
+const MultiAngleRegistration = lazy(() => import('../components/MultiAngleRegistration'));
 import {
   searchFace, searchFaceWithRegistration, getEventByCode, downloadZip, downloadPhoto,
   deleteFaceRegistration,
@@ -218,7 +218,9 @@ export default function HomePage() {
             <h2 className="text-lg font-semibold">Enter Event Code</h2>
           </div>
           <div className="flex gap-3">
+            <label htmlFor="event-code" className="sr-only">Event code</label>
             <input
+              id="event-code"
               type="text"
               value={eventCode}
               onChange={(e) => setEventCode(e.target.value.toUpperCase())}
@@ -366,13 +368,17 @@ export default function HomePage() {
 
       {/* Webcam modal */}
       {showRegistration && (
-        <MultiAngleRegistration onRegistered={handleRegistration} onClose={() => setShowRegistration(false)} />
+        <Suspense fallback={<div className="fixed inset-0 z-50 bg-slate-950/70 flex items-center justify-center" role="status">Loading camera...</div>}>
+          <MultiAngleRegistration onRegistered={handleRegistration} onClose={() => setShowRegistration(false)} />
+        </Suspense>
       )}
       {showWebcam && (
-        <WebcamCapture
-          onCapture={handleWebcamCapture}
-          onClose={() => setShowWebcam(false)}
-        />
+        <Suspense fallback={<div className="fixed inset-0 z-50 bg-slate-950/70 flex items-center justify-center text-white" role="status">Loading camera...</div>}>
+          <WebcamCapture
+            onCapture={handleWebcamCapture}
+            onClose={() => setShowWebcam(false)}
+          />
+        </Suspense>
       )}
     </div>
   );

@@ -57,7 +57,7 @@ export default function Navbar() {
                   <FiGrid size={16} />
                   Dashboard
                 </Link>
-                <div className="flex items-center gap-2 text-slate-400 text-sm">
+                <div className="flex items-center gap-2 text-slate-600 text-sm">
                   <FiUser size={14} />
                   Crowd Snap Admin
                 </div>
@@ -83,6 +83,8 @@ export default function Navbar() {
           <button
             className="md:hidden text-slate-700 hover:text-slate-950 p-2"
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={mobileOpen}
           >
             {mobileOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
@@ -117,7 +119,7 @@ export default function Navbar() {
                   <FiGrid size={16} />
                   Dashboard
                 </Link>
-                <div className="flex items-center gap-2 text-slate-400 text-sm py-2">
+                <div className="flex items-center gap-2 text-slate-600 text-sm py-2">
                   <FiUser size={14} />
                   Crowd Snap Admin
                 </div>

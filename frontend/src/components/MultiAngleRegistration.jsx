@@ -27,6 +27,25 @@ function clamp(value, min = 0, max = 1) {
   return Math.min(max, Math.max(min, value));
 }
 
+function loadFaceMeshScript() {
+  if (typeof window.FaceMesh === 'function') return Promise.resolve();
+  return new Promise((resolve, reject) => {
+    const existing = document.querySelector('script[data-face-mesh]');
+    if (existing) {
+      existing.addEventListener('load', () => resolve(), { once: true });
+      existing.addEventListener('error', () => reject(new Error('Face mesh load failed')), { once: true });
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js';
+    script.async = true;
+    script.dataset.faceMesh = 'true';
+    script.onload = () => resolve();
+    script.onerror = () => reject(new Error('Face mesh load failed'));
+    document.head.appendChild(script);
+  });
+}
+
 function assessImageQuality(image) {
   if (!image) return false;
   const canvas = document.createElement('canvas');
@@ -203,6 +222,7 @@ export default function MultiAngleRegistration({ onRegistered, onClose }) {
   }, [reviewing]);
 
   const initializeMesh = useCallback(async () => {
+    await loadFaceMeshScript();
     const FaceMeshConstructor = window.FaceMesh;
     if (typeof FaceMeshConstructor !== 'function') {
       setStatus('Face detection could not load. Please refresh and retry.');

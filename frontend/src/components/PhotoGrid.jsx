@@ -85,6 +85,7 @@ export default function PhotoGrid({ photos, selectable = true, onSelectionChange
                       setLightbox(id);
                     }}
                     className="p-1.5 bg-white/20 rounded-lg hover:bg-white/30 transition-colors"
+                    aria-label={`View ${photo.original_filename || photo.filename || 'photo'} full size`}
                   >
                     <FiZoomIn size={14} className="text-white" />
                   </button>
@@ -105,6 +106,8 @@ export default function PhotoGrid({ photos, selectable = true, onSelectionChange
                     e.stopPropagation();
                     toggleSelect(id);
                   }}
+                  aria-label={isSelected ? 'Deselect photo' : 'Select photo'}
+                  aria-pressed={isSelected}
                   className={`absolute top-2 right-2 w-6 h-6 rounded-md flex items-center justify-center transition-all
                     ${isSelected
                       ? 'bg-primary-500 text-white'
@@ -127,6 +130,7 @@ export default function PhotoGrid({ photos, selectable = true, onSelectionChange
           <button
             className="absolute top-4 right-4 text-white/70 hover:text-white p-2"
             onClick={() => setLightbox(null)}
+            aria-label="Close full-size photo"
           >
             <FiX size={24} />
           </button>
